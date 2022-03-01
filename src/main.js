@@ -5,4 +5,12 @@ import store from "./store";
 import "./assets/tailwind.css";
 import "./assets/main.css";
 
-createApp(App).use(store).use(router).mount("#app");
+// create VueJs app
+let app = createApp(App);
+
+// register the modules/plugins
+app.use(store);
+app.use(router);
+
+// mount the app
+app.mount("#app");
