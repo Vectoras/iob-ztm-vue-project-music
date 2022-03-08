@@ -34,14 +34,16 @@ export default createStore({
 
       commit("toggleAuth");
     },
-    async login({ commit }, payload) {
+    async login({ commit }) {
       await auth.signInWithEmailAndPassword(payload.email, payload.password);
 
       commit("toggleAuth");
     },
-    async signout({ commit }) {
+    async signout({ commit }, payload) {
       await auth.signOut();
       commit("toggleAuth");
+
+      // if (payload.route.meta.requiresAuth) payload.router.push({ name: "home" });
     },
     init_login({ commit }) {
       const user = auth.currentUser;
