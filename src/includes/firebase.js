@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth"; // firebase is smart enough to extend the core without the need to use another object
 import "firebase/firestore";
+import "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDEjRzkM0dGgugD9Ij39_dE3ZaXR32oaTA",
@@ -15,7 +16,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
-const usersCollection = db.collection("users");
 const auth = firebase.auth();
+const storage = firebase.storage();
 
-export { auth, db, usersCollection };
+const usersCollection = db.collection("users");
+const songsCollection = db.collection("songs");
+
+export { auth, db, storage, usersCollection, songsCollection };
