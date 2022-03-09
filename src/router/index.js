@@ -34,7 +34,7 @@ const routes = [
         return;
       }
 
-      store.push({ name: "home" });
+      router.push({ name: "home" });
     },
   },
   {
