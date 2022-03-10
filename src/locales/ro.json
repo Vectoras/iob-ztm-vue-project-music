@@ -1,0 +1,15 @@
+{
+  "home": {
+    "listen": "Ascultă muzică grozavă! "
+  },
+  "manage": {
+    "my_songs": "Cântecele Mele"
+  },
+  "register": {
+    "TOS": "Termenii și Condițiile",
+    "accept": "Accept {0} companiei Music"
+  },
+  "song": {
+    "comment_count": "Niciun comentariu | 1 Comentariu| {count} Comentarii"
+  }
+}

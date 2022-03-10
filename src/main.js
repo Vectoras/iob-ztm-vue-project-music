@@ -7,13 +7,14 @@ import { auth } from "./includes/firebase";
 import Icon from "./directives/icon";
 import "./assets/tailwind.css";
 import "./assets/main.css";
+import i18n from "./includes/i18n";
 
 let app;
 
 auth.onAuthStateChanged(() => {
   if (!app) {
     // create VueJs app
-    app = createApp(App);
+    app = createApp(App).use(i18n);
 
     // register the modules/plugins
     app.use(store);

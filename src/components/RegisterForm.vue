@@ -90,7 +90,9 @@
         value="1"
         class="w-4 h-4 float-left -ml-6 mt-1 rounded"
       />
-      <label class="inline-block">Accept terms of service</label>
+      <i18n-t tag="label" class="inline-block" keypath="register.accept">
+        <a href="#">{{ $t("register.TOS") }}</a>
+      </i18n-t>
     </div>
     <ErrorMessage class="text-red-600" name="tos" />
     <!-- Buttons -->
