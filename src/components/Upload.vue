@@ -104,7 +104,7 @@
               this.uploads[uploadIndex].variant = "bg-red-400";
               this.uploads[uploadIndex].icon = "fas fa-times";
               this.uploads[uploadIndex].text_class = "text-red-400";
-              console.log(error);
+              // console.log(error);
             },
             // callback function for success
             async () => {
