@@ -8,6 +8,12 @@ import Icon from "./directives/icon";
 import "./assets/tailwind.css";
 import "./assets/main.css";
 import i18n from "./includes/i18n";
+import "./registerServiceWorker";
+import GobalComponents from "./includes/_globals";
+import ProgressBar from "./includes/progress-bar";
+import "nprogress/nprogress.css";
+
+ProgressBar(router);
 
 let app;
 
@@ -20,6 +26,9 @@ auth.onAuthStateChanged(() => {
     app.use(store);
     app.use(router);
     app.use(VeeValidatePlugin);
+
+    app.use(GobalComponents);
+
     app.directive("icon", Icon);
 
     // mount the app

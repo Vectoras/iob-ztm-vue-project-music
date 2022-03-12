@@ -1,9 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "@/views/HomeView.vue";
-import About from "@/views/AboutView.vue";
-import Manage from "@/views/ManageView.vue";
-import Song from "@/views/Song.vue";
+// import Home from "@/views/HomeView.vue";
+// import About from "@/views/AboutView.vue";
+// import Manage from "@/views/ManageView.vue";
+// import Song from "@/views/Song.vue";
 import store from "@/store";
+
+const Home = () => import("@/views/HomeView.vue");
+const About = () => import(/*webpackChunkName: "groupedChunk"*/ "@/views/AboutView.vue");
+const Manage = () => import(/*webpackChunkName: "groupedChunk"*/ "@/views/ManageView.vue");
+const Song = () => import("@/views/Song.vue");
 
 const routes = [
   {
@@ -30,7 +35,7 @@ const routes = [
         return;
       }
 
-      if (store.state.userLoggedIn) {
+      if (store.state.auth.userLoggedIn) {
         next();
         return;
       }

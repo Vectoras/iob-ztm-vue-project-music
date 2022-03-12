@@ -81,8 +81,11 @@
       };
     },
     computed: {
-      ...mapState({ modal: "authModalShow" }),
       // ...mapState(["authModalShow"]),
+      // ...mapState({ modal: "authModalShow" }),
+      ...mapState({
+        modal: (state) => state.auth.authModalShow,
+      }),
     },
     methods: {
       ...mapMutations(["toggleAuthModal"]),

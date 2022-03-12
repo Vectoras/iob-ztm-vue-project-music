@@ -67,6 +67,17 @@
             // console.log("Illegal file type");
             return;
           }
+          if (!navigator.online) {
+            this.uploads.push({
+              task: {},
+              current_progress: 100,
+              name: file.name,
+              variant: "bg-red-400",
+              icon: "fas fa-times",
+              text_class: "text-red-400",
+            });
+            return;
+          }
 
           const storageRef = firebaseStorage.ref(); // music-ztm-vue.appspot.com
           const songsRef = storageRef.child(`songs/${file.name}`); // music-ztm-vue.appspot.com/songs/example.mp3

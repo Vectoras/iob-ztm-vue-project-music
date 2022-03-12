@@ -111,6 +111,10 @@
     },
     computed: {
       ...mapState(["userLoggedIn", "currentSong"]),
+      ...mapState({
+        userLoggedIn: (state) => state.auth.userLoggedIn,
+        currentSong: (state) => state.player.currentSong,
+      }),
       ...mapGetters(["playing"]),
       sortedComments() {
         return this.comments.slice().sort((a, b) => {
@@ -180,20 +184,22 @@
         });
       },
     },
-    async created() {
-      const docSnapshot = await songsCollection.doc(this.$route.params.id).get();
+    async beforeRouterEnter(to, from, next) {
+      const docSnapshot = await songsCollection.doc(to.params.id).get();
 
-      if (!docSnapshot.exists) {
-        this.$router.push({ name: "home" });
-        return;
-      }
+      next((vm) => {
+        if (!docSnapshot.exists) {
+          this.$router.push({ name: "home" });
+          return;
+        }
 
-      const { sort } = this.$route.query;
-      if (sort === "1" || sort === "2") this.sort = sort; // my solution -> does not trigger the watcher if query missing + default value needs updating only in data()
-      // this.sort = sort === "1" || sort === "2" ? sort : "1"; // trainer solution
+        const { sort } = vm.$route.query;
+        if (sort === "1" || sort === "2") vm.sort = sort; // my solution -> does not trigger the watcher if query missing + default value needs updating only in data()
+        // vm.sort = sort === "1" || sort === "2" ? sort : "1"; // trainer solution
 
-      this.song = docSnapshot.data();
-      this.getComments();
+        vm.song = docSnapshot.data();
+        vm.getComments();
+      });
     },
   };
 </script>
