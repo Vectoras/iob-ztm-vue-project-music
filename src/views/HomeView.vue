@@ -35,7 +35,9 @@
           <!-- Icon -->
         </div>
         <!-- Playlist -->
-        <app-song-item v-for="song in songs" :key="song.docID" :song="song" />
+        <ol id="playlist">
+          <app-song-item v-for="song in songs" :key="song.docID" :song="song" />
+        </ol>
         <!-- .. end Playlist -->
       </div>
     </section>

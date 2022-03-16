@@ -5,12 +5,12 @@
 </template>
 
 <script>
-  import dummyModule from "@/store/modules/dummy";
+  // // import dummyModule from "@/store/modules/dummy";
 
-  export default {
-    name: "AboutView",
-    created() {
-      this.$store.registerModule("dummy", dummyModule);
-    },
-  };
+  // export default {
+  //   name: "AboutView",
+  //   created() {
+  //     // this.$store.registerModule("dummy", dummyModule);
+  //   },
+  // };
 </script>
